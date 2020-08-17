@@ -44,9 +44,9 @@ app.put("/repositories/:id", (request, response) => {
 
   const editedRepository = {
     ...currentRepository,
-    title: title && title,
-    url: url && url,
-    techs: techs && techs,
+    title: title ? title : currentRepository.title,
+    url: url ? url : currentRepository.url,
+    techs: techs ? techs : currentRepository.techs,
   }
 
   repositories[repoIndex] = editedRepository
